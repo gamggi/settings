@@ -1,0 +1,8 @@
+# 꼭 설정해라
+# /etc/sysctl.conf 파일에 적기
+net.ipv4.ip_nonlocal_bind = 1
+net.ipv4.ip_forward = 1
+
+# sysctl -p 명령어로 적용되었는지 체크
+
+
