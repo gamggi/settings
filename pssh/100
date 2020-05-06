@@ -1,0 +1,100 @@
+ 1190  sudo fdisk /dev/sda3
+ 1191  sudo mount /dev/sda3p1 /mnt/hdd/
+ 1192  sudo fdisk /dev/sda3
+ 1193  reboot
+ 1194  sudo fdisk -l
+ 1195  sudo fdisk /dev/sda3
+ 1196  p
+ 1197  sudo fdisk /dev/sda3
+ 1198  pvcreate /dev/sda3p1
+ 1199  sudo pvcreate /dev/sda3p1
+ 1200  pvcreate /dev/sda3p1
+ 1201  sudo fdisk /dev/sda3
+ 1202  sudo fdisk -l
+ 1203  sudo pvcreate /dev/sda3
+ 1204  sudo fdisk -l
+ 1205  pvdisplay 
+ 1206  sudo pvdisplay 
+ 1207  mount /dev/sda3 /mnt/hdd/
+ 1208  sudo mount /dev/sda3 /mnt/hdd/
+ 1209  vgcreate vg-hdd /dev/sda3 /dev/sdar
+ 1210  sudo vgcreate vg-hdd /dev/sda3 /dev/sdar
+ 1211  sudo vgcreate vg-hdd /dev/sda3 /dev/sda3
+ 1212  sudo vgdisplay 
+ 1213  sudo vgcreate vg-hdd /dev/sda3 /dev/sda3
+ 1214  sudo vgcreate v--force g-hdd /dev/sda3 /dev/sda3
+ 1215  sudo vgcreate --force vg-hdd /dev/sda3 /dev/sda3
+ 1216  sudo wipefs /dev/sda3
+ 1217  sudo pvcreate /dev/sda3
+ 1218  sudo vgcreate vg-hdd /dev/sda3 /dev/sda3
+ 1219  Device /dev/sda3 excluded by a filter.
+ 1220  sudo dd if=/dev/zero of=/dev/sda3 bs=512 count=1
+ 1221  sudo vgcreate vg-hdd /dev/sda3 /dev/sda3
+ 1222* sudo dd if=/dev/zero of=/dev/sda3 bs=512 count=
+ 1223  sudo vgcreate vg-hdd /dev/sda3
+ 1224  lvcreate --extents 100%FREE --name lv-hdd vg-hdd
+ 1225  sudo lvcreate --extents 100%FREE --name lv-hdd vg-hdd
+ 1226  mkfs -t ext4 /dev/vg-hdd/lv-hdd
+ 1227  sudo mkfs -t ext4 /dev/vg-hdd/lv-hdd
+ 1228  vim /etc/fstab 
+ 1229  sudo vim /etc/fstab 
+ 1230  mount -a
+ 1231  sudo mount -a
+ 1232  sudo fdisk -l
+ 1233  sudo mount -a
+ 1234  sudo mount /dev/mapper/vg--hdd-lv--hdd /mnt/hdd
+ 1235  df -h
+ 1236  sudo fdisk /dev/mapper/vg--hdd-lv--hdd 
+ 1237  ;ls
+ 1238  ls
+ 1239  sudo vgdisplay 
+ 1240  sudo lvdisplay 
+ 1241  cat /etc/fstab 
+ 1242  sudo vim /etc/fstab 
+ 1243  moubt -a
+ 1244  mount -a
+ 1245  sudo mount -a
+ 1246  sudo mount
+ 1247  ls
+ 1248  df -h
+ 1249  cd /mnt/hdd/
+ 1250  ls
+ 1251  touch test
+ 1252  sudo touch test
+ 1253  ls
+ 1254  cd ..
+ 1255  ls -al 
+ 1256  sudo chmod 765 hdd/
+ 1257  ls
+ 1258  cd hdd/
+ 1259  ls
+ 1260  touch testest
+ 1261  cd ..
+ 1262  ls -al
+ 1263  sudo chmod 777 hdd/
+ 1264  history 100 > 100
+ 1265  cd ~
+ 1266  history 100 > 100
+ 1267  cat 100 | grep init
+ 1268  cat 100 | grep fc
+ 1269  cat 100 | grep vc
+ 1270  pssh -h settings/pssh/hostlist-all sudo install -y lvm2
+ 1271  pssh -h settings/pssh/hostlist-all -P sudo install -y lvm2
+ 1272  pssh -h settings/pssh/hostlist-all -P -I <sudo install -y lvm2
+ 1273  pssh -h settings/pssh/hostlist-all -P -I 'sudo install -y lvm2'
+ 1274  pssh -h settings/pssh/hostlist-all -P  'sudo install -y lvm2'
+ 1275  cat settings/pssh/hostlist-all
+ 1276  ls
+ 1277  rm -rf 100
+ 1278  cd settings/
+ 1279  ls
+ 1280  cd pssh
+ 1281  ls
+ 1282  cat > cmd << EOF
+ 1283  pssh -h hostlist-all -P  'sudo apt  install -y lvm2'
+ 1284  history 100 | grep lvcreate
+ 1285  history 100 | grep vccreate
+ 1286  history 100 | grep v
+ 1287  history 100 | grep vgcreate
+ 1288  history 100 | grep lvcreate
+ 1289  history 100 > 100
