@@ -1,0 +1,500 @@
+  839  sudo apt remove kubelet
+  840  sudo apt install kubeadm=1.17.3-00
+  841  sudo kubeadm init --control-plane-endpoint "172.27.0.220:16443" --upload-certs
+  842  sudo kubeadm reset
+  843  sudo kubeadm init --control-plane-endpoint "172.27.0.220:16443" --upload-certs --pod-network-cidr=192.168.0.0/16
+  844  sudo apt install kubelet=1.17.3-00
+  845  sudo kubeadm init --control-plane-endpoint "172.27.0.220:16443" --upload-certs --pod-network-cidr=192.168.0.0/16
+  846  sudo kubeadm reset
+  847  sudo apt remove kubectl kubeadm kubelet
+  848  sudo apt install kubectl=1.17.3-00 kubeadm=1.17.3-00 kubelet=1.17.3-00
+  849  sudo kubeadm init --control-plane-endpoint "172.27.1.103:6443" --upload-certs --pod-network-cidr=192.168.0.0/16
+  850  sudo kubeadm reset 
+  851  sudo kubeadm init --control-plane-endpoint "172.27.1.103:16443" --upload-certs --pod-network-cidr=192.168.0.0/16
+  852  sudo kubeadm reset
+  853  sudo kubeadm init --control-plane-endpoint "172.27.1.103:26443" --upload-certs --pod-network-cidr=192.168.0.0/16
+  854  sudo kubeadm reset
+  855  sudo kubeadm init --control-plane-endpoint "172.27.0.220:26443" --upload-certs --pod-network-cidr=192.168.0.0/16
+  856  ls
+  857  ha
+  858  sudo kubeadm reset
+  859  ls
+  860  cd ..
+  861  ls
+  862  git add docker k8s pssh
+  863  git pull
+  864  ls
+  865  ls /etc/keepalived/keepalived.conf
+  866  cat /etc/keepalived/keepalived.conf
+  867  cat keepalived/keepalived.conf.1
+  868  ip a
+  869  sudo vim /etc/keepalived/keepalived.conf
+  870  kubectl get node
+  871  sudo kubeadm reseyt
+  872  sudo kubeadm reset
+  873  rm -rf ~/.kube/
+  874  ls
+  875  sudo vim /etc/keepalived/keepalived.conf
+  876  sudo vim /etc/haproxy/haproxy.cfg 
+  877  ls
+  878  cd keepalived/
+  879  ls
+  880  cat README 
+  881  sudo sysctl -p
+  882  pssh -h ../pssh/hostlist-master -P << cat EOF
+  883  sudo vim /etc/sysctl.conf 
+  884  sudo sysctl -p
+  885  sudo systemctl restart keepalived
+  886  sudo systemctl restart haproxy
+  887  history 200 | grep init
+  888  sudo kubeadm init --control-plane-endpoint "172.27.0.220:16443" --upload-certs --pod-network-cidr=192.168.0.0/16
+  889  ssh master3
+  890  ssh master3@master3
+  891  ls
+  892  cd ../pssh/
+  893  ls
+  894  vim temp
+  895  vim cat
+  896  vim cmd
+  897  pssh -h hostlist-master -P -I < temp 
+  898  pssh -h hostlist-master -P -I < cmd
+  899  pssh
+  900  source ~/.bashrc 
+  901  pssh -h hostlist-master -P -I < cmd
+  902  ipa 
+  903  ip a
+  904  parallel-ssh -h ../../pssh/hostlist-master -P sudo apt install haproxy
+  905  parallel-ssh -h ~/pssh/hostlist-master -P sudo apt install haproxy
+  906  s
+  907  parallel-ssh -h ~/settings/pssh/hostlist-master -P sudo apt install haproxy
+  908  sudo vim /etc/haproxy/haproxy.cfg 
+  909  ping worker3
+  910  ping worker4
+  911  ping worker5
+  912  vim ~/settings/pssh/
+  913  vim ~/settings/pssh/hostlist-all-temp 
+  914  cd settings/k8s/
+  915  ls
+  916  vim k8s-install.sh 
+  917  parallel-ssh -h ~/settings/pssh/hostlist-all-temp -P -I < k8s-install.sh 
+  918  sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+  919  vim /etc/apt/sources.list
+  920  vim /etc/apt/sources.list.d/kubernetes.list 
+  921  sudo cp /etc/apt/sources.list.d/kubernetes.list .
+  922  sudo rm /etc/apt/sources.list.d/kubernetes.list 
+  923  apt update
+  924  sudo apt update
+  925  ls
+  926  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+  927  cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+  928  deb https://apt.kubernetes.io/ kubernetes-xenial main
+  929  EOF
+  930  sudo apt update
+  931  ls
+  932  vim k8s-install.sh 
+  933  parallel-ssh -h ~/settings/pssh/hostlist-all-temp -P -I < k8s-install.sh 
+  934  ls
+  935  ping worker6
+  936  ping worker5
+  937  ping worker4
+  938  ping worker43
+  939  ping worker3
+  940  ssh worker4@worker4
+  941  ls
+  942  cd ..
+  943  ls
+  944  cd docker
+  945  ls
+  946  cd ../pssh/
+  947  ls
+  948  rm date
+  949  cp hostlist-all-temp  temp
+  950  vim temp 
+  951  ssh worker4@worker4
+  952  ssh-copy-id worker4@worker4
+  953  ssh-copy-id worker5@worker5
+  954  ssh-copy-id worker6@worker6
+  955  ssh-copy-id worker3@worker3
+  956  ssh worker3@worker3
+  957  ssh worker4@worker4
+  958  ssh worker5@worker5
+  959  ls
+  960  ssh worker6@worker6
+  961  ls
+  962  vim temp 
+  963  cd ../docker/
+  964  parallel-ssh -h ../temp  -P -I < docker-install.sh
+  965  parallel-ssh -h ~/setting/pssh/temp  -P -I < docker-install.sh
+  966  parallel-ssh -h ~/settings/pssh/temp  -P -I < docker-install.sh
+  967  parallel-ssh -h ~/settings/pssh/temp  -P -I < docker-cgroup.sh 
+  968  parallel-ssh -h ~/settings/pssh/temp  -P -I < ../k8s/k8s-install.sh 
+  969  haproxy
+  970  cat /etc/haproxy/haproxy.cfg 
+  971  ping 172.27.0.220
+  972  sudo echo -e '172.27.0.220\tkube-api-server' >> /etc/hosts
+  973  echo -e '172.27.0.220\tkube-api-server' >> /etc/hosts
+  974  sudo echo -e '172.27.0.220\tkube-api-server' >> /etc/hosts
+  975  sudo bash -c 'echo -e '172.27.0.220\tkube-api-server' >> /etc/hosts'
+  976  cat /etc/host
+  977  cat /etc/hosts
+  978  sudo vim /etc/hosts
+  979  echo -e 'echo\ttest'
+  980  ls
+  981  echo vim /etc/haproxy/haproxy.cfg 
+  982  sudo vim /etc/haproxy/haproxy.cfg 
+  983  sudo nano /etc/haproxy/haproxy.cfg 
+  984  sudo vim /etc/haproxy/haproxy.cfg 
+  985  sudo kubeadm init --apiserver-advertise-address=<master node ip> --pod-network-cidr=192.168.0.0/16
+  986  cat /etc/hosts
+  987  sudo kubeadm init --apiserver-advertise-address=kube-api-server --pod-network-cidr=192.168.0.0/16
+  988  sudo kubeadm init --apiserver-advertise-address=172.27.0.220 --pod-network-cidr=192.168.0.0/16
+  989  swapoff -a
+  990  parallel-ssh -h ~/settings/pssh/hostlist-all -P sudo swapoff -a
+  991  cat /etc/fstab
+  992  sudo sed -i "s/\/swap/#\/swap/g" /etc/fstab
+  993  cat /etc/fstab
+  994  parallel-ssh -h ~/settings/pssh/hostlist-all -P sudo sed -i "s/\/swap/#\/swap/g" /etc/fstab
+  995  parallel-ssh -h ~/settings/pssh/hostlist-all -P sudo bash -c 'sed -i "s/\/swap/#\/swap/g" /etc/fstab'
+  996  parallel-ssh -h ~/settings/pssh/hostlist-all -P sudo sed -i "s/\/swap/#\/swap/g" /etc/fstab
+  997  parallel-ssh -h ~/settings/pssh/hostlist-all -P sudo bash -c 'sudo sed -i "s/\/swap/#\/swap/g" /etc/fstab'
+  998  cat /etc/fstab 
+  999  parallel-ssh -h ~/settings/pssh/hostlist-all -P sudo sed -i 's/\/swap/#\/swap/g' /etc/fstab
+ 1000  parallel-ssh -h ~/settings/pssh/hostlist-all -P sudo sed
+ 1001  sed
+ 1002  sudo sed
+ 1003  sudo sed -i
+ 1004  vim temp
+ 1005  ls
+ 1006  vim temp
+ 1007  parallel-ssh -h ~/settings/pssh/hostlist-all -P -I < temp
+ 1008  ssh worker4@worker4
+ 1009  vim temp 
+ 1010  mv temp swapoff.sh
+ 1011  cat swapoff.sh 
+ 1012  ls
+ 1013  mv swapoff.sh ../k8s/
+ 1014  ls ~/k8s
+ 1015  ls
+ 1016  sudo kubeadm init --apiserver-advertise-address=172.27.0.220 --pod-network-cidr=192.168.0.0/16
+ 1017  cd ../k8s
+ 1018  ls
+ 1019  cat sudo
+ 1020  rm sudo
+ 1021  vim copyconfig.sh
+ 1022  parallel-ssh -h ~/settings/pssh/hostlist-master -P -I < copyconfig.sh 
+ 1023  ssh master2@master2
+ 1024  parallel-ssh -h ~/settings/pssh/hostlist-all -P kubeadm join 172.27.0.220:6443 --token 64qsql.i5oj2uucmmkjqoeu     --discovery-token-ca-cert-hash sha256:cb85c024c252bf350234ac116ff8a06dead6a7b8ee4808616684eeaba3d16d57 
+ 1025  parallel-ssh -h ~/settings/pssh/hostlist-worker -P sudo kubeadm join 172.27.0.220:6443 --token 64qsql.i5oj2uucmmkjqoeu     --discovery-token-ca-cert-hash sha256:cb85c024c252bf350234ac116ff8a06dead6a7b8ee4808616684eeaba3d16d57 
+ 1026  kubectl apply -f https://docs.projectcalico.org/v3.9/manifests/calico.yaml
+ 1027  kubectl get node
+ 1028  watch kubectl get node
+ 1029  ls
+ 1030  nc
+ 1031  nc -v kube-api-server 6443
+ 1032  nc -v kube-api-server 16443
+ 1033  nc -v kube-api-server 6443
+ 1034  cat /etc/haproxy/haproxy.cfg 
+ 1035  Edit This Page
+ 1036  kube-apiserver
+ 1037  Edit This Page
+ 1038  kube-apiserver
+ 1039  sudo kubeadm
+ 1040  kubectl config
+ 1041  kubectl get node
+ 1042  kubeadm view
+ 1043  sudo kubeadm view
+ 1044  sudo kubeadm configview
+ 1045  sudo kubeadm config view
+ 1046  kubeadm
+ 1047  kubeadm config print -kubeconfig
+ 1048  kubectl drain node worker1
+ 1049  kubectl drain
+ 1050  kubectl drain worker1
+ 1051  kubectl drain --ignore-daemonsets worker1
+ 1052  kubectl drain --ignore-daemonsets worker2
+ 1053  kubectl drain --ignore-daemonsets worker3
+ 1054  kubectl drain --ignore-daemonsets worker4
+ 1055  kubectl drain --ignore-daemonsets worker5
+ 1056  kubectl drain --ignore-daemonsets worker6
+ 1057  kubectl get node
+ 1058  kubectl delete node worker1
+ 1059  kubectl delete node worker2
+ 1060  kubectl delete node worker3
+ 1061  kubectl delete node worker4
+ 1062  kubectl delete node worker5
+ 1063  kubectl delete node worker6
+ 1064  kubectl get node
+ 1065  sudo kubeadm reset
+ 1066  rm -rf ~/.kube
+ 1067  sudo kubeadm init --apiserver-advertise-address=<master node ip> --pod-network-cidr=192.168.0.0/16
+ 1068  sudo kubeadm init --apiserver-advertise-address=172.27.0.220 --apiserver-bind-port 16443 --pod-network-cidr=192.168.0.0/16 --upload-certs
+ 1069  kubeadm join 172.27.0.220:16443 --token 8c7obn.opfaonvqp0rg84uf \
+ 1070  ssh master2@master2
+ 1071  mkdir -p $HOME/.kube
+ 1072  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+ 1073  kubectl get node
+ 1074  ssh master2@master2
+ 1075  history 500 > 200
+ 1076  cat 200 | grep kubeadm init
+ 1077  cat 200 | grep 'kubeadm init'
+ 1078  sudo kubeadm init --apiserver-advertise-address=172.27.0.220 --apiserver-bind-port 16443 --pod-network-cidr=192.168.0.0/16 --upload-certs
+ 1079  mkdir -p $HOME/.kube
+ 1080  kubectl get node
+ 1081  kubeadm alpha --help
+ 1082  kubeadm alpha certs --help
+ 1083  kubeadm alpha certs certificate-key
+ 1084  ip a
+ 1085  sudo kubeadm init phase upload-certs --upload-certs
+ 1086  vim /etc/keepalived/keepalived.conf
+ 1087  sudo vim /etc/keepalived/keepalived.conf
+ 1088  sudo systemctl restart keepalived.service 
+ 1089  ip a
+ 1090  ssh master2@master2
+ 1091  ssh master3@master3
+ 1092  kubectl apply -f https://docs.projectcalico.org/v3.9/manifests/calico.yaml
+ 1093  kubectl get node
+ 1094  kubectl get po -A
+ 1095  sudo kubeadm token --help
+ 1096  sudo kubeadm token create --help
+ 1097  sudo kubeadm token create --print-join-command
+ 1098  kubectl get node
+ 1099  curl -sSL http://localhost:10248/healthz
+ 1100  kubectl get no
+ 1101  ssh master3@master3
+ 1102  ssh worker1@worker1
+ 1103  ssh worker2@worker2
+ 1104  ssh master2@master2
+ 1105  cat /etc/keepalived/keepalived.conf
+ 1106  cat /etc/haproxy/haproxy.cfg 
+ 1107  cat /etc/sysctl.conf 
+ 1108  sudo vim /etc/keepalived/keepalived.conf
+ 1109  cd ../keepalived/
+ 1110  ls
+ 1111  cat keepalived.conf.2
+ 1112  cat /etc/haproxy/haproxy.cfg 
+ 1113  cat /etc/sysctl.conf 
+ 1114  ssh master2@master2
+ 1115  ls
+ 1116  ssh worker1
+ 1117  ssh worker1@worker1
+ 1118  ssh worker2@worker2
+ 1119  ssh worker3@worker3
+ 1120  ssh worker4@worker4
+ 1121  ssh worker5@worker5
+ 1122  ssh worker6@worker6
+ 1123  kubectl get node
+ 1124  l
+ 1125  kubeadm create token
+ 1126  kubeadm token create --help
+ 1127  kubeadm token create --print-join-command
+ 1128  cd settings/pssh/
+ 1129  pssh -h hostlist-worker -P kubeadm join 172.27.0.220:16443 --token ecy93p.vduund05p4r8xmtj     --discovery-token-ca-cert-hash sha256:0dd794fd210aff3013b3e0d78a97989a921e11dce7ee9131686e6e93b637f7ea 
+ 1130  pssh -h hostlist-worker -P sudo kubeadm join 172.27.0.220:16443 --token ecy93p.vduund05p4r8xmtj     --discovery-token-ca-cert-hash sha256:0dd794fd210aff3013b3e0d78a97989a921e11dce7ee9131686e6e93b637f7ea 
+ 1131  pssh -h hostlist-worker -P sudo kubeadm reset
+ 1132  pssh -h hostlist-worker -P echo -y | sudo kubeadm reset
+ 1133  pssh -h hostlist-worker -P sudo kubeadm join 172.27.0.220:16443 --token ecy93p.vduund05p4r8xmtj     --discovery-token-ca-cert-hash sha256:0dd794fd210aff3013b3e0d78a97989a921e11dce7ee9131686e6e93b637f7ea 
+ 1134  kubectl get no
+ 1135  kubectl delete no worker1
+ 1136  pssh -h hostlist-worker -P sudo kubeadm join 172.27.0.220:16443 --token ecy93p.vduund05p4r8xmtj     --discovery-token-ca-cert-hash sha256:0dd794fd210aff3013b3e0d78a97989a921e11dce7ee9131686e6e93b637f7ea 
+ 1137  ls
+ 1138  kubectl get no
+ 1139  kubectl get po -A
+ 1140  kubectl get po -A -o wide
+ 1141  kubectl run --image ubuntu ubuntu --replicas 10 -- sleep infinity
+ 1142  kubectl get po
+ 1143  kubectl get po -o wide
+ 1144  ls
+ 1145  df -h
+ 1146  sudo fdisk
+ 1147  sudo fdisk list
+ 1148  sudo fdisk -l
+ 1149  df -h
+ 1150  ls mnt
+ 1151  ls /mnt
+ 1152  ls /m*
+ 1153  sudo mount /dev/sda3 /mnt/hdd
+ 1154  mkdir /mnt/hdd
+ 1155  sudo mkdir /mnt/hdd
+ 1156  sudo mount /dev/sda3 /mnt/hdd
+ 1157  sudo mount --help
+ 1158  sudo mount /dev/sda3 /mnt/hdd
+ 1159  sudo fdisk -l
+ 1160  sudo lvdisplay sudo lvdisplay 
+ 1161  sudo lvdisplay 
+ 1162  sudo lvs
+ 1163  sudo lvdisplay 
+ 1164  sudo vgscan
+ 1165  vgscan
+ 1166  sudo vgscan
+ 1167  sudo pvdisplay /dev/sda3
+ 1168  sudo pvdisplay /dev/sda1
+ 1169  sudo pvdisplay /dev/sda2
+ 1170  sudo pvdisplay /dev/sda3
+ 1171  sudo pvdisplay /dev/sda3 
+ 1172  sudo fdisk -l
+ 1173  df -h
+ 1174  cat /etc/fstab
+ 1175  sudo fdisk -l
+ 1176  sudo pvdisplay /dev/sda3
+ 1177  sudo pvscan
+ 1178  sudo lvscan 
+ 1179  lvscan
+ 1180  sudo lvscan 
+ 1181  ls
+ 1182  sudo fdisk /dev/sda3
+ 1183  8e
+ 1184  sudo fdisk /dev/sda3
+ 1185  df -h
+ 1186  sudo fdisk -l
+ 1187  sudo fdisk /dev/sda3
+ 1188  sudo reboot
+ 1189  sudo fdisk -l
+ 1190  sudo fdisk /dev/sda3
+ 1191  sudo mount /dev/sda3p1 /mnt/hdd/
+ 1192  sudo fdisk /dev/sda3
+ 1193  reboot
+ 1194  sudo fdisk -l
+ 1195  sudo fdisk /dev/sda3
+ 1196  p
+ 1197  sudo fdisk /dev/sda3
+ 1198  pvcreate /dev/sda3p1
+ 1199  sudo pvcreate /dev/sda3p1
+ 1200  pvcreate /dev/sda3p1
+ 1201  sudo fdisk /dev/sda3
+ 1202  sudo fdisk -l
+ 1203  sudo pvcreate /dev/sda3
+ 1204  sudo fdisk -l
+ 1205  pvdisplay 
+ 1206  sudo pvdisplay 
+ 1207  mount /dev/sda3 /mnt/hdd/
+ 1208  sudo mount /dev/sda3 /mnt/hdd/
+ 1209  vgcreate vg-hdd /dev/sda3 /dev/sdar
+ 1210  sudo vgcreate vg-hdd /dev/sda3 /dev/sdar
+ 1211  sudo vgcreate vg-hdd /dev/sda3 /dev/sda3
+ 1212  sudo vgdisplay 
+ 1213  sudo vgcreate vg-hdd /dev/sda3 /dev/sda3
+ 1214  sudo vgcreate v--force g-hdd /dev/sda3 /dev/sda3
+ 1215  sudo vgcreate --force vg-hdd /dev/sda3 /dev/sda3
+ 1216  sudo wipefs /dev/sda3
+ 1217  sudo pvcreate /dev/sda3
+ 1218  sudo vgcreate vg-hdd /dev/sda3 /dev/sda3
+ 1219  Device /dev/sda3 excluded by a filter.
+ 1220  sudo dd if=/dev/zero of=/dev/sda3 bs=512 count=1
+ 1221  sudo vgcreate vg-hdd /dev/sda3 /dev/sda3
+ 1222* sudo dd if=/dev/zero of=/dev/sda3 bs=512 count=
+ 1223  sudo vgcreate vg-hdd /dev/sda3
+ 1224  lvcreate --extents 100%FREE --name lv-hdd vg-hdd
+ 1225  sudo lvcreate --extents 100%FREE --name lv-hdd vg-hdd
+ 1226  mkfs -t ext4 /dev/vg-hdd/lv-hdd
+ 1227  sudo mkfs -t ext4 /dev/vg-hdd/lv-hdd
+ 1228  vim /etc/fstab 
+ 1229  sudo vim /etc/fstab 
+ 1230  mount -a
+ 1231  sudo mount -a
+ 1232  sudo fdisk -l
+ 1233  sudo mount -a
+ 1234  sudo mount /dev/mapper/vg--hdd-lv--hdd /mnt/hdd
+ 1235  df -h
+ 1236  sudo fdisk /dev/mapper/vg--hdd-lv--hdd 
+ 1237  ;ls
+ 1238  ls
+ 1239  sudo vgdisplay 
+ 1240  sudo lvdisplay 
+ 1241  cat /etc/fstab 
+ 1242  sudo vim /etc/fstab 
+ 1243  moubt -a
+ 1244  mount -a
+ 1245  sudo mount -a
+ 1246  sudo mount
+ 1247  ls
+ 1248  df -h
+ 1249  cd /mnt/hdd/
+ 1250  ls
+ 1251  touch test
+ 1252  sudo touch test
+ 1253  ls
+ 1254  cd ..
+ 1255  ls -al 
+ 1256  sudo chmod 765 hdd/
+ 1257  ls
+ 1258  cd hdd/
+ 1259  ls
+ 1260  touch testest
+ 1261  cd ..
+ 1262  ls -al
+ 1263  sudo chmod 777 hdd/
+ 1264  history 100 > 100
+ 1265  cd ~
+ 1266  history 100 > 100
+ 1267  cat 100 | grep init
+ 1268  cat 100 | grep fc
+ 1269  cat 100 | grep vc
+ 1270  pssh -h settings/pssh/hostlist-all sudo install -y lvm2
+ 1271  pssh -h settings/pssh/hostlist-all -P sudo install -y lvm2
+ 1272  pssh -h settings/pssh/hostlist-all -P -I <sudo install -y lvm2
+ 1273  pssh -h settings/pssh/hostlist-all -P -I 'sudo install -y lvm2'
+ 1274  pssh -h settings/pssh/hostlist-all -P  'sudo install -y lvm2'
+ 1275  cat settings/pssh/hostlist-all
+ 1276  ls
+ 1277  rm -rf 100
+ 1278  cd settings/
+ 1279  ls
+ 1280  cd pssh
+ 1281  ls
+ 1282  cat > cmd << EOF
+ 1283  pssh -h hostlist-all -P  'sudo apt  install -y lvm2'
+ 1284  history 100 | grep lvcreate
+ 1285  history 100 | grep vccreate
+ 1286  history 100 | grep v
+ 1287  history 100 | grep vgcreate
+ 1288  history 100 | grep lvcreate
+ 1289  history 100 > 100
+ 1290  vim 100
+ 1291  cat /etc/fstab 
+ 1292  cd ..\
+ 1293  ls
+ 1294  git add docker/ haproxy/ k8s pssh/ keepalived/
+ 1295  git push
+ 1296  ls
+ 1297  git status
+ 1298  cd k8s
+ 1299  ls
+ 1300  cat 200 
+ 1301  rm -rf 200
+ 1302  ls
+ 1303  cd ..
+ 1304  ls
+ 1305  cd ..
+ 1306  ls
+ 1307  cd settings/
+ 1308  git commit -a
+ 1309  git config --global user.email "you@example.com"
+ 1310  git config --global user.email "gamggi@gmail.com"
+ 1311  git config --global user.name "gamggi"
+ 1312  git commit -a
+ 1313  git push
+ 1314  git status
+ 1315  ls
+ 1316  git add keepalived/ haproxy/
+ 1317  ls
+ 1318  git status
+ 1319  history 1000 | init
+ 1320  history 1000 | grep init
+ 1321  ls
+ 1322  history | grep pvcreate
+ 1323  ls
+ 1324  cd pssh/
+ 1325  ls
+ 1326  rm -rf 100
+ 1327  rm -rf temp
+ 1328  ls
+ 1329  pssh  -h hostlist-all sudo fdisk -l | grep sda
+ 1330  pssh  -h hostlist-all -P sudo fdisk -l | grep sda
+ 1331  hostname
+ 1332  vim cmd
+ 1333  pssh  -h hostlist-all -P sudo fdisk -l | grep sda
+ 1334  pssh  -h hostlist-all -P -I < cmd 
+ 1335  sudo fdisk -l
+ 1336  history | grep vgcreate
+ 1337  history | grep lvcreate
+ 1338  history 500 > history500

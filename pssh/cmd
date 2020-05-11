@@ -1,4 +1,1 @@
-	mkdir -p $HOME/.kube
-	sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-	sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
+pssh -h ../pssh/hostlist-all -P  sudo bash -c 'sed -i"" -e "7 i\ \ \"insecure-registries\" : [\"172.27.1.103:5000\"]," /etc/docker/daemon.json'
