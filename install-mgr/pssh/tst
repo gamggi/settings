@@ -1,0 +1,17 @@
+
+
+
+sudo apt install -y bash-completion
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+echo "alias k=kubectl" >> ~/.bashrc
+echo "complete -F __start_kubectl k" >> ~/.bashrc
+
+
+if [ $SHELL -eq "/bin/bash ] 
+then
+  source ~/.bashrc
+else
+  source ~/.zshrc
+fi
+
+
