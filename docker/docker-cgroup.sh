@@ -5,7 +5,6 @@ sudo bash -c 'cat > /etc/docker/daemon.json <<EOF
   "log-opts": {
     "max-size": "100m"
   },
-  "insecure-registries": ["172.27.1.103:5000"],
   "storage-driver": "overlay2"
 }
 EOF'
