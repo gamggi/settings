@@ -21,17 +21,6 @@ echo '==========================================='
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 sed -i "s/plugins=(git/plugins=(git zsh-autosuggestions/g" ~/.zshrc
-#echo 'source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
-
-
-echo '==========================================='
-echo '              PC 명 제거'
-echo '==========================================='
-echo 'prompt_context() {' >> ~/.zshrc
-echo '  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then' >> ~/.zshrc
-echo '    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"' >> ~/.zshrc
-echo '  fi' >> ~/.zshrc
-echo '}' >> ~/.zshrc
 
 
 
@@ -42,21 +31,36 @@ git clone https://github.com/superbrothers/zsh-kubectl-prompt.git ${ZSH_CUSTOM:-
 
 sed -i "s/plugins=(git/plugins=(git zsh-kubectl-prompt/g" ~/.zshrc
 
-echo 'autoload -U colors; colors' >> ~/.zshrc
-echo 'source $ZSH_CUSTOM/plugins/zsh-kubectl-prompt/kubectl.zsh' >> ~/.zshrc
-echo 'RPROMPT="%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}"' >> ~/.zshrc
-
-
 
 echo '==========================================='
 echo '           k8s auto complete'
 echo '==========================================='
 
+
+
 echo 'alias k=kubectl' >> ~/.zshrc
 echo 'complete -F __start_kubectl k' >> ~/.zshrc
 echo '[[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)' >> ~/.zshrc
-
 echo 'ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=247"' >> ~/.zshrc
 
-zsh
+echo 'autoload -U colors; colors' >> ~/.zshrc
+echo 'source $ZSH_CUSTOM/plugins/zsh-kubectl-prompt/kubectl.zsh' >> ~/.zshrc
 
+echo 'function right_prompt() {
+  local color="white"
+
+  if [[ "$ZSH_KUBECTL_USER" =~ "admin" ]]; then
+    color=red
+  fi  
+
+  echo "%{$fg[$color]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}"
+}' >> ~/.zshrc
+echo 'RPROMPT='"'"'$(right_prompt)'"'"'' >> ~/.zshrc
+
+echo "alias ka='kubectl --context ams'" >> ~/.zshrc
+echo "alias kb='kubectl --context busan'" >> ~/.zshrc
+echo "alias kans='k config set-context ams --namespace '" >> ~/.zshrc
+echo "alias kc='k --context colombo '" >> ~/.zshrc
+echo "alias kcns='k config set-context colombo --namespace '" >> ~/.zshrc
+
+zsh 
